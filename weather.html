@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+<style>
+   body{
+        display: flexbox;
+        align-content: center;
+        margin-top: 40px;
+        margin-left: 400px;
+        margin-right: 400px;
+        background-image: url('data:image/jpeg;base64,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');
+        background-size: 100%;
+    }
+    .card{
+        background-color: aliceblue;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .btn{
+        color: black;
+        background-color:rgb(186, 220, 186);
+    }
+    .description{
+        text-transform: capitalize;
+    }
+</style>
+</head>
+<body>
+    <h2>Current Weather:</h2>
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Enter zipcode..." aria-label="Recipient's username" aria-describedby="button-addon2">
+        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+      </div>
+    <div class="weather">
+    <div class="card"><br>
+        <h3><div class="city">City</div></h3><hr>
+        <div class="currentDate">Date</div><hr>
+        <div class="description">Description</div><hr>
+        <div class="temp">Temperature</div><hr>
+        <div class="temp_min">Low temperature</div><hr>
+        <div class="temp_max">High temperature</div><br>
+
+    </div>
+    </div>
+    <script>
+        let weather={
+            "apiKey": "e4ba83305066468c877f03cd8ed05d33",
+            fetchWeather: function(zipCode){
+                fetch("https://api.openweathermap.org/data/2.5/weather?zip=" + zipCode + ",us&appid=" + this.apiKey + "&units=imperial")
+            .then((response)=>response.json())
+            .then((data)=>this.displayWeather(data));
+            },
+        displayWeather: function (data) {
+            const {name}= data;
+            const {temp, temp_min, temp_max}=data.main;
+            const {description}=data.weather[0];
+            console.log(name, temp, temp_min, temp_max, description);
+            document.querySelector(".city").innerText ="Weather in "+ name +":";
+            document.querySelector(".description").innerText = description;
+            document.querySelector(".temp").innerText = "Current temperature "+ temp + "°F";
+            document.querySelector(".temp_min").innerText ="Today's low "+ temp_min + "°F";
+            document.querySelector(".temp_max").innerText = "Today's high "+ temp_max + "°F";
+            const currentDateElement = document.getElementById("current-date");
+            const currentDate = new Date();
+            document.querySelector(".currentDate").innerText = `Today is ${currentDate.toLocaleDateString()}`;
+        },
+        search:function() {
+           this.fetchWeather(document.querySelector(".form-control").value);
+        },
+        init:function(){
+          document.querySelector("#button-addon2").addEventListener("click", ()=>{this.search()});
+        }
+      };
+
+      weather.init();
+    </script>
+</body>
+</html>
